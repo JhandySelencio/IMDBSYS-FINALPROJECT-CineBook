@@ -1,0 +1,86 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\JHANDY\\OneDrive\\Documents\\C# Codes\\APPSDEV_FinalProject\\IMDBSYS_CineBook\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{EA9D94FF-C533-4C9E-AA71-264438BE7649}|IMDBSYS_CineBook\\IMDBSYS_CineBook.csproj|c:\\users\\jhandy\\onedrive\\documents\\c# codes\\appsdev_finalproject\\imdbsys_cinebook\\imdbsys_cinebook\\dashboardform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EA9D94FF-C533-4C9E-AA71-264438BE7649}|IMDBSYS_CineBook\\IMDBSYS_CineBook.csproj|solutionrelative:imdbsys_cinebook\\dashboardform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA9D94FF-C533-4C9E-AA71-264438BE7649}|IMDBSYS_CineBook\\IMDBSYS_CineBook.csproj|C:\\Users\\JHANDY\\OneDrive\\Documents\\C# Codes\\APPSDEV_FinalProject\\IMDBSYS_CineBook\\imdbsys_cinebook\\registerform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EA9D94FF-C533-4C9E-AA71-264438BE7649}|IMDBSYS_CineBook\\IMDBSYS_CineBook.csproj|solutionrelative:imdbsys_cinebook\\registerform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA9D94FF-C533-4C9E-AA71-264438BE7649}|IMDBSYS_CineBook\\IMDBSYS_CineBook.csproj|C:\\Users\\JHANDY\\OneDrive\\Documents\\C# Codes\\APPSDEV_FinalProject\\IMDBSYS_CineBook\\imdbsys_cinebook\\dashboardform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{EA9D94FF-C533-4C9E-AA71-264438BE7649}|IMDBSYS_CineBook\\IMDBSYS_CineBook.csproj|solutionrelative:imdbsys_cinebook\\dashboardform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA9D94FF-C533-4C9E-AA71-264438BE7649}|IMDBSYS_CineBook\\IMDBSYS_CineBook.csproj|C:\\Users\\JHANDY\\OneDrive\\Documents\\C# Codes\\APPSDEV_FinalProject\\IMDBSYS_CineBook\\imdbsys_cinebook\\bookmovieform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EA9D94FF-C533-4C9E-AA71-264438BE7649}|IMDBSYS_CineBook\\IMDBSYS_CineBook.csproj|solutionrelative:imdbsys_cinebook\\bookmovieform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DashboardForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\JHANDY\\OneDrive\\Documents\\C# Codes\\APPSDEV_FinalProject\\IMDBSYS_CineBook\\IMDBSYS_CineBook\\DashboardForm.cs",
+              "RelativeDocumentMoniker": "IMDBSYS_CineBook\\DashboardForm.cs",
+              "ToolTip": "C:\\Users\\JHANDY\\OneDrive\\Documents\\C# Codes\\APPSDEV_FinalProject\\IMDBSYS_CineBook\\IMDBSYS_CineBook\\DashboardForm.cs [Design]*",
+              "RelativeToolTip": "IMDBSYS_CineBook\\DashboardForm.cs [Design]*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-25T14:07:16.988Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DashboardForm.cs",
+              "DocumentMoniker": "C:\\Users\\JHANDY\\OneDrive\\Documents\\C# Codes\\APPSDEV_FinalProject\\IMDBSYS_CineBook\\IMDBSYS_CineBook\\DashboardForm.cs",
+              "RelativeDocumentMoniker": "IMDBSYS_CineBook\\DashboardForm.cs",
+              "ToolTip": "C:\\Users\\JHANDY\\OneDrive\\Documents\\C# Codes\\APPSDEV_FinalProject\\IMDBSYS_CineBook\\IMDBSYS_CineBook\\DashboardForm.cs*",
+              "RelativeToolTip": "IMDBSYS_CineBook\\DashboardForm.cs*",
+              "ViewState": "AgIAALcBAAAAAAAAAAAAAM4BAABMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-25T11:03:01.138Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "RegisterForm.cs",
+              "DocumentMoniker": "C:\\Users\\JHANDY\\OneDrive\\Documents\\C# Codes\\APPSDEV_FinalProject\\IMDBSYS_CineBook\\IMDBSYS_CineBook\\RegisterForm.cs",
+              "RelativeDocumentMoniker": "IMDBSYS_CineBook\\RegisterForm.cs",
+              "ToolTip": "C:\\Users\\JHANDY\\OneDrive\\Documents\\C# Codes\\APPSDEV_FinalProject\\IMDBSYS_CineBook\\IMDBSYS_CineBook\\RegisterForm.cs",
+              "RelativeToolTip": "IMDBSYS_CineBook\\RegisterForm.cs",
+              "ViewState": "AgIAADUAAAAAAAAAAAAIwCgAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-25T05:33:33.173Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "BookMovieForm.cs",
+              "DocumentMoniker": "C:\\Users\\JHANDY\\OneDrive\\Documents\\C# Codes\\APPSDEV_FinalProject\\IMDBSYS_CineBook\\IMDBSYS_CineBook\\BookMovieForm.cs",
+              "RelativeDocumentMoniker": "IMDBSYS_CineBook\\BookMovieForm.cs",
+              "ToolTip": "C:\\Users\\JHANDY\\OneDrive\\Documents\\C# Codes\\APPSDEV_FinalProject\\IMDBSYS_CineBook\\IMDBSYS_CineBook\\BookMovieForm.cs",
+              "RelativeToolTip": "IMDBSYS_CineBook\\BookMovieForm.cs",
+              "ViewState": "AgIAAFMCAAAAAAAAAAAowOAAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T06:53:36.512Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

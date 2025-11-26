@@ -1,0 +1,367 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CineBookDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="MovieRating">
+    <Key>
+      <PropertyRef Name="RatedID" />
+    </Key>
+    <Property Name="RatedID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RatedName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Movies" Relationship="Self.FK_Movies_MovieRating" FromRole="MovieRating" ToRole="Movies" />
+  </EntityType>
+  <EntityType Name="Movie">
+    <Key>
+      <PropertyRef Name="MovieID" />
+    </Key>
+    <Property Name="MovieID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Genre" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="StatusID" Type="Int32" />
+    <Property Name="Duration" Type="Int32" />
+    <Property Name="RatedID" Type="Int32" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Poster" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MovieScore" Type="Decimal" Precision="5" Scale="1" />
+    <NavigationProperty Name="MovieRating" Relationship="Self.FK_Movies_MovieRating" FromRole="Movies" ToRole="MovieRating" />
+    <NavigationProperty Name="Showtimes" Relationship="Self.FK_Showtime_Movies" FromRole="Movies" ToRole="Showtime" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="RoleID" />
+    </Key>
+    <Property Name="RoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleTitle" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_Users_Role" FromRole="Role" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Screen">
+    <Key>
+      <PropertyRef Name="ScreenID" />
+    </Key>
+    <Property Name="ScreenID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ScreenName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Seats" Relationship="Self.FK_Seat_Screen" FromRole="Screen" ToRole="Seat" />
+    <NavigationProperty Name="Showtimes" Relationship="Self.FK_Showtime_Screen" FromRole="Screen" ToRole="Showtime" />
+  </EntityType>
+  <EntityType Name="Seat">
+    <Key>
+      <PropertyRef Name="SeatID" />
+    </Key>
+    <Property Name="SeatID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ScreenID" Type="Int32" />
+    <Property Name="SeatName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Screen" Relationship="Self.FK_Seat_Screen" FromRole="Seat" ToRole="Screen" />
+    <Property Name="StatusID" Type="Int32" />
+    <NavigationProperty Name="Bookings" Relationship="CineBookDBModel.FK_Booking_Seat" FromRole="Seat" ToRole="Booking" />
+    <NavigationProperty Name="Status" Relationship="CineBookDBModel.FK_Seat_Status" FromRole="Seat" ToRole="Status" />
+  </EntityType>
+  <EntityType Name="Showtime">
+    <Key>
+      <PropertyRef Name="ShowTimeID" />
+    </Key>
+    <Property Name="ShowTimeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MovieID" Type="Int32" />
+    <Property Name="ScreenID" Type="Int32" />
+    <Property Name="ShowDate" Type="DateTime" Precision="0" />
+    <Property Name="StartTime" Type="Time" Precision="7" />
+    <Property Name="EndTime" Type="Time" Precision="7" />
+    <Property Name="TicketPrice" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="StatusID" Type="Int32" />
+    <NavigationProperty Name="Movy" Relationship="Self.FK_Showtime_Movies" FromRole="Showtime" ToRole="Movies" />
+    <NavigationProperty Name="Screen" Relationship="Self.FK_Showtime_Screen" FromRole="Showtime" ToRole="Screen" />
+    <NavigationProperty Name="Bookings" Relationship="CineBookDBModel.FK_Booking_Showtime" FromRole="Showtime" ToRole="Booking" />
+  </EntityType>
+  <EntityType Name="Status">
+    <Key>
+      <PropertyRef Name="StatusID" />
+    </Key>
+    <Property Name="StatusID" Type="Int32" Nullable="false" />
+    <Property Name="StatusName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_Users_Status" FromRole="Status" ToRole="Users" />
+    <NavigationProperty Name="Bookings" Relationship="CineBookDBModel.FK_Booking_Status" FromRole="Status" ToRole="Booking" />
+    <NavigationProperty Name="Seats" Relationship="CineBookDBModel.FK_Seat_Status" FromRole="Status" ToRole="Seat" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Fullname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RoleID" Type="Int32" />
+    <Property Name="StatusID" Type="Int32" />
+    <NavigationProperty Name="Role" Relationship="Self.FK_Users_Role" FromRole="Users" ToRole="Role" />
+    <NavigationProperty Name="Status" Relationship="Self.FK_Users_Status" FromRole="Users" ToRole="Status" />
+    <NavigationProperty Name="Bookings" Relationship="CineBookDBModel.FK_Booking_Users" FromRole="User" ToRole="Booking" />
+  </EntityType>
+  <Association Name="FK_Movies_MovieRating">
+    <End Role="MovieRating" Type="Self.MovieRating" Multiplicity="0..1" />
+    <End Role="Movies" Type="CineBookDBModel.Movie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MovieRating">
+        <PropertyRef Name="RatedID" />
+      </Principal>
+      <Dependent Role="Movies">
+        <PropertyRef Name="RatedID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Showtime_Movies">
+    <End Role="Movies" Type="CineBookDBModel.Movie" Multiplicity="0..1" />
+    <End Role="Showtime" Type="Self.Showtime" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Movies">
+        <PropertyRef Name="MovieID" />
+      </Principal>
+      <Dependent Role="Showtime">
+        <PropertyRef Name="MovieID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Role">
+    <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+    <End Role="Users" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="RoleID" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Seat_Screen">
+    <End Role="Screen" Type="Self.Screen" Multiplicity="0..1" />
+    <End Role="Seat" Type="Self.Seat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Screen">
+        <PropertyRef Name="ScreenID" />
+      </Principal>
+      <Dependent Role="Seat">
+        <PropertyRef Name="ScreenID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Showtime_Screen">
+    <End Role="Screen" Type="Self.Screen" Multiplicity="0..1" />
+    <End Role="Showtime" Type="Self.Showtime" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Screen">
+        <PropertyRef Name="ScreenID" />
+      </Principal>
+      <Dependent Role="Showtime">
+        <PropertyRef Name="ScreenID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Status">
+    <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+    <End Role="Users" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="StatusID" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="StatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CineBookDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="MovieRatings" EntityType="Self.MovieRating" />
+    <EntitySet Name="Movies" EntityType="CineBookDBModel.Movie" />
+    <EntitySet Name="Roles" EntityType="Self.Role" />
+    <EntitySet Name="Screens" EntityType="Self.Screen" />
+    <EntitySet Name="Seats" EntityType="Self.Seat" />
+    <EntitySet Name="Showtimes" EntityType="Self.Showtime" />
+    <EntitySet Name="Status" EntityType="Self.Status" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <AssociationSet Name="FK_Movies_MovieRating" Association="Self.FK_Movies_MovieRating">
+      <End Role="MovieRating" EntitySet="MovieRatings" />
+      <End Role="Movies" EntitySet="Movies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Showtime_Movies" Association="Self.FK_Showtime_Movies">
+      <End Role="Movies" EntitySet="Movies" />
+      <End Role="Showtime" EntitySet="Showtimes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Role" Association="Self.FK_Users_Role">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Seat_Screen" Association="Self.FK_Seat_Screen">
+      <End Role="Screen" EntitySet="Screens" />
+      <End Role="Seat" EntitySet="Seats" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Showtime_Screen" Association="Self.FK_Showtime_Screen">
+      <End Role="Screen" EntitySet="Screens" />
+      <End Role="Showtime" EntitySet="Showtimes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Status" Association="Self.FK_Users_Status">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <EntitySet Name="Bookings" EntityType="CineBookDBModel.Booking" />
+    <EntitySet Name="Payments" EntityType="CineBookDBModel.Payment" />
+    <EntitySet Name="PaymentMethods" EntityType="CineBookDBModel.PaymentMethod" />
+    <AssociationSet Name="FK_Booking_Showtime" Association="CineBookDBModel.FK_Booking_Showtime">
+      <End Role="Showtime" EntitySet="Showtimes" />
+      <End Role="Booking" EntitySet="Bookings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Booking_Status" Association="CineBookDBModel.FK_Booking_Status">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="Booking" EntitySet="Bookings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Booking_Users" Association="CineBookDBModel.FK_Booking_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Booking" EntitySet="Bookings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Payment_Booking" Association="CineBookDBModel.FK_Payment_Booking">
+      <End Role="Booking" EntitySet="Bookings" />
+      <End Role="Payment" EntitySet="Payments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Payment_PaymentMethod" Association="CineBookDBModel.FK_Payment_PaymentMethod">
+      <End Role="PaymentMethod" EntitySet="PaymentMethods" />
+      <End Role="Payment" EntitySet="Payments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Booking_Seat" Association="CineBookDBModel.FK_Booking_Seat">
+      <End Role="Seat" EntitySet="Seats" />
+      <End Role="Booking" EntitySet="Bookings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Seat_Status" Association="CineBookDBModel.FK_Seat_Status">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="Seat" EntitySet="Seats" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Booking">
+    <Key>
+      <PropertyRef Name="BookingID" />
+    </Key>
+    <Property Name="BookingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int32" />
+    <Property Name="ShowtimeID" Type="Int32" />
+    <Property Name="BookingDate" Type="DateTime" Precision="3" />
+    <Property Name="StatusID" Type="Int32" />
+    <NavigationProperty Name="Showtime" Relationship="CineBookDBModel.FK_Booking_Showtime" FromRole="Booking" ToRole="Showtime" />
+    <NavigationProperty Name="Status" Relationship="CineBookDBModel.FK_Booking_Status" FromRole="Booking" ToRole="Status" />
+    <NavigationProperty Name="User" Relationship="CineBookDBModel.FK_Booking_Users" FromRole="Booking" ToRole="User" />
+    <NavigationProperty Name="Payments" Relationship="CineBookDBModel.FK_Payment_Booking" FromRole="Booking" ToRole="Payment" />
+    <Property Name="SeatID" Type="Int32" />
+    <Property Name="TicketID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Seat" Relationship="CineBookDBModel.FK_Booking_Seat" FromRole="Booking" ToRole="Seat" />
+  </EntityType>
+  <EntityType Name="Payment">
+    <Key>
+      <PropertyRef Name="PaymentID" />
+    </Key>
+    <Property Name="PaymentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BookingID" Type="Int32" />
+    <Property Name="PaymentMethodID" Type="Int32" />
+    <Property Name="PaymentDate" Type="DateTime" Precision="3" />
+    <Property Name="AmountPaid" Type="Decimal" Precision="10" Scale="2" />
+    <NavigationProperty Name="Booking" Relationship="CineBookDBModel.FK_Payment_Booking" FromRole="Payment" ToRole="Booking" />
+    <NavigationProperty Name="PaymentMethod" Relationship="CineBookDBModel.FK_Payment_PaymentMethod" FromRole="Payment" ToRole="PaymentMethod" />
+  </EntityType>
+  <EntityType Name="PaymentMethod">
+    <Key>
+      <PropertyRef Name="PaymentMethodID" />
+    </Key>
+    <Property Name="PaymentMethodID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PaymentMethodName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Payments" Relationship="CineBookDBModel.FK_Payment_PaymentMethod" FromRole="PaymentMethod" ToRole="Payment" />
+  </EntityType>
+  <Association Name="FK_Booking_Showtime">
+    <End Type="CineBookDBModel.Showtime" Role="Showtime" Multiplicity="0..1" />
+    <End Type="CineBookDBModel.Booking" Role="Booking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Showtime">
+        <PropertyRef Name="ShowTimeID" />
+      </Principal>
+      <Dependent Role="Booking">
+        <PropertyRef Name="ShowtimeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Booking_Status">
+    <End Type="CineBookDBModel.Status" Role="Status" Multiplicity="0..1" />
+    <End Type="CineBookDBModel.Booking" Role="Booking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="StatusID" />
+      </Principal>
+      <Dependent Role="Booking">
+        <PropertyRef Name="StatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Booking_Users">
+    <End Type="CineBookDBModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="CineBookDBModel.Booking" Role="Booking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Booking">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Payment_Booking">
+    <End Type="CineBookDBModel.Booking" Role="Booking" Multiplicity="0..1" />
+    <End Type="CineBookDBModel.Payment" Role="Payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Booking">
+        <PropertyRef Name="BookingID" />
+      </Principal>
+      <Dependent Role="Payment">
+        <PropertyRef Name="BookingID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Payment_PaymentMethod">
+    <End Type="CineBookDBModel.PaymentMethod" Role="PaymentMethod" Multiplicity="0..1" />
+    <End Type="CineBookDBModel.Payment" Role="Payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PaymentMethod">
+        <PropertyRef Name="PaymentMethodID" />
+      </Principal>
+      <Dependent Role="Payment">
+        <PropertyRef Name="PaymentMethodID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Booking_Seat">
+    <End Type="CineBookDBModel.Seat" Role="Seat" Multiplicity="0..1" />
+    <End Type="CineBookDBModel.Booking" Role="Booking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Seat">
+        <PropertyRef Name="SeatID" />
+      </Principal>
+      <Dependent Role="Booking">
+        <PropertyRef Name="SeatID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Seat_Status">
+    <End Type="CineBookDBModel.Status" Role="Status" Multiplicity="0..1" />
+    <End Type="CineBookDBModel.Seat" Role="Seat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="StatusID" />
+      </Principal>
+      <Dependent Role="Seat">
+        <PropertyRef Name="StatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
